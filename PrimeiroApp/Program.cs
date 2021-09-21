@@ -50,12 +50,11 @@ namespace PrimeiroApp
                 {
                     for (int i = 0; i < agendacontatos.GetLength(0); i++)
                     {
-
-                        for (int j = 0; j < agendacontatos.GetLength(1); j++)
-                        {
-                            string s = agendacontatos[i, j];
-                            Console.WriteLine(s);
-                        }
+                        Console.WriteLine(agendacontatos[i, 0] + "\n" + agendacontatos[i, 1] + "\n" +
+                                        agendacontatos[i, 2] + "\n" + agendacontatos[i, 3] + "\n" + agendacontatos[i, 4] + "\n" + agendacontatos[i, 10])
+                        
+                        
+                        
                     }
 
 
@@ -72,23 +71,23 @@ namespace PrimeiroApp
                     string estadoadd;
                     string dataadd;
                     string obsadd;
-                    Console.WriteLine("Digite o Nome");
+                    Console.WriteLine("Digite o Nome(Iniciais Maiúsculas)");
                     nomeadd = Console.ReadLine();
-                    Console.WriteLine("Digite o Sobrenome");
+                    Console.WriteLine("Digite o Sobrenome(Iniciais Maiúsculas)");
                     sobrenomeadd = Console.ReadLine();
-                    Console.WriteLine("Digite o Tipo de Contato");
+                    Console.WriteLine("Digite o Tipo de Contato(Celular, Trabalho, Casa, Principal, Pager, Fax Trabalho, Fax Casa ou Outro.)");
                     tipocontatoadd = Console.ReadLine();
-                    Console.WriteLine("Digite o Telefone");
+                    Console.WriteLine("Digite o Telefone(ex:xx xxxxxxxxx");
                     telefoneadd = Console.ReadLine();
                     Console.WriteLine("Digite o E-mail");
                     emailadd = Console.ReadLine();
-                    Console.WriteLine("Digite o Bairro");
+                    Console.WriteLine("Digite o Bairro(Iniciais Maiúsculas)");
                     bairroadd = Console.ReadLine();
-                    Console.WriteLine("Digite a Cidade");
+                    Console.WriteLine("Digite a Cidade(Iniciais Maiúsculas)");
                     cidadeadd = Console.ReadLine();
-                    Console.WriteLine("Digite o Estado");
+                    Console.WriteLine("Digite o Estado(Iniciais Maiúsculas)");
                     estadoadd = Console.ReadLine();
-                    Console.WriteLine("Digite a Data de Nascimento");
+                    Console.WriteLine("Digite a Data de Nascimento(ex: dd/mm/aa");
                     dataadd = Console.ReadLine();
                     Console.WriteLine("Digite a Observação");
                     obsadd = Console.ReadLine();
