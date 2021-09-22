@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace PrimeiroApp
 {
     class Program
@@ -7,36 +8,61 @@ namespace PrimeiroApp
         static void Main(string[] args)
         {
             
-            string[,] agendacontatos = new string[100, 11];
+            Contato[] agendacontatos = new Contato[100];
             string variavelloopmain = "iniciar";
             string variavellooppesq = "iniciar";
-            agendacontatos[0, 0] = "Nome:" + "Rhian";
-            agendacontatos[0, 1] = "Sobrenome:" + "Costa";
-            agendacontatos[0, 2] = "Tipo de Contato:" + "Pessoal";
-            agendacontatos[0, 3] = "Telefone:" + "81 985441003";
-            agendacontatos[0, 4] = "Email:" + "rhianqw@gmail.com";
-            agendacontatos[0, 5] = "Bairro:" + "Artur Lundgren 2";
-            agendacontatos[0, 6] = "Cidade:" + "Paulista";
-            agendacontatos[0, 7] = "Estado:" + "Pernambuco";
-            agendacontatos[0, 8] = "Data de Nascimento:" + "05/07/2003";
-            agendacontatos[0, 9] = "OBS:" + "Aluno do Curso de C#";
-            agendacontatos[0, 10] = "------------------------------------------------";
+            string data1 = "05/11/2003";
+            string data2 = "15/12/2002";
+            string data3 = "31/01/2001";
+            agendacontatos[0].nome = "Rhian";
+            agendacontatos[0].sobrenome = "Costa";
+            agendacontatos[0].tipocontato = "Casa";
+            agendacontatos[0].telefone = "81985441003";
+            agendacontatos[0].email = "rhianqw@gmail.com";
+            agendacontatos[0].bairro = "Paratibe";
+            agendacontatos[0].cidade = "Paulista";
+            agendacontatos[0].estado = "Pernambuco";
+            agendacontatos[0].dataniver = DateTime.ParseExact(data1, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            agendacontatos[0].obs = "Aluno IFPE";
 
 
-            agendacontatos[1, 0] = "Nome:" + "Rhian";
-            agendacontatos[1, 1] = "Sobrenome:" + "Branco";
-            agendacontatos[1, 2] = "Tipo de Contato:" + "Pessoal";
-            agendacontatos[1, 3] = "Telefone:" + "81 985441003";
-            agendacontatos[1, 4] = "Email:" + "rhianqw@gmail.com";
-            agendacontatos[1, 5] = "Bairro:" + "Artur Lundgren 2";
-            agendacontatos[1, 6] = "Cidade:" + "Paulista";
-            agendacontatos[1, 7] = "Estado:" + "Pernambuco";
-            agendacontatos[1, 8] = "Data de Nascimento:" + "05/07/2003";
-            agendacontatos[1, 9] = "OBS:" + "Aluno do Curso de C#";
-            agendacontatos[1, 10] = "------------------------------------------------";
+            agendacontatos[3].nome = "Rhian";
+            agendacontatos[3].sobrenome = "Branco";
+            agendacontatos[3].tipocontato = "Casa";
+            agendacontatos[3].telefone = "81985441003";
+            agendacontatos[3].email = "rhianqw@gmail.com";
+            agendacontatos[3].bairro = "Paratibe";
+            agendacontatos[3].cidade = "Paulista";
+            agendacontatos[3].estado = "Pernambuco";
+            agendacontatos[3].dataniver = DateTime.ParseExact(data2, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            agendacontatos[3].obs = "Aluno do Curso";
 
 
-            while (variavelloopmain=="iniciar")
+            agendacontatos[99].nome = "Rhuan";
+            agendacontatos[99].sobrenome = "Cavalcanti";
+            agendacontatos[99].tipocontato = "Casa";
+            agendacontatos[99].telefone = "81985441003";
+            agendacontatos[99].email = "rhianqw@gmail.com";
+            agendacontatos[99].bairro = "Paratibe";
+            agendacontatos[99].cidade = "Paulista";
+            agendacontatos[99].estado = "Pernambuco";
+            agendacontatos[99].dataniver = DateTime.ParseExact(data3, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            agendacontatos[99].obs = "Colega de Trabalho";
+
+
+            agendacontatos[97].nome = "Pedro";
+            agendacontatos[97].sobrenome = "Barros";
+            agendacontatos[97].tipocontato = "Pessoal";
+            agendacontatos[97].telefone = "81985441003";
+            agendacontatos[97].email = "rhianqw@gmail.com";
+            agendacontatos[97].bairro = "Peixinhos";
+            agendacontatos[97].cidade = "Olinda";
+            agendacontatos[97].estado = "Pernambuco";
+            agendacontatos[97].dataniver = DateTime.ParseExact(data3, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            agendacontatos[97].obs = "Colega de Trabalho";
+
+
+            while (variavelloopmain == "iniciar")
             {
                 Console.WriteLine("Digite o número do que você quer fazer\n" +
                     "1-Ver Lista;\n" +
@@ -50,12 +76,31 @@ namespace PrimeiroApp
                 {
                     for (int i = 0; i < agendacontatos.GetLength(0); i++)
                     {
-
-                        for (int j = 0; j < agendacontatos.GetLength(1); j++)
+                        int mes = agendacontatos[i].dataniver.Month;
+                        int dia = agendacontatos[i].dataniver.Day;
+                        if (agendacontatos[i].nome!=null)
                         {
-                            string s = agendacontatos[i, j];
-                            Console.WriteLine(s);
+                            DateTime DataConta = new DateTime(DateTime.Today.Year, mes, dia);
+                            int resultado = (int)DataConta.Subtract(DateTime.Today).TotalDays;
+                            if (DataConta > DateTime.Today)
+                            {
+                                Console.WriteLine("Nome: " + agendacontatos[i].nome + "\n" + "Sobrenome: " + agendacontatos[i].sobrenome + "\n" + "Tipo de Contato: " +
+                                        agendacontatos[i].tipocontato + "\n" + "Telefone: " + agendacontatos[i].telefone + "\n" + "E-mail: " + agendacontatos[i].email + "\n" +
+                                        "Falta: " + resultado + " dias para seu aniversário" + "\n" + "----------------------------------------");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Nome: " + agendacontatos[i].nome + "\n" + "Sobrenome: " + agendacontatos[i].sobrenome + "\n" + "Tipo de Contato: " +
+                                        agendacontatos[i].tipocontato + "\n" + "Telefone: " + agendacontatos[i].telefone + "\n" + "E-mail: " + agendacontatos[i].email + "\n" +
+                                        "O aniversário do contato já passou." + "\n" + "----------------------------------------");
+                            }
                         }
+                        
+                        
+
+
+
+
                     }
 
 
@@ -70,52 +115,54 @@ namespace PrimeiroApp
                     string bairroadd;
                     string cidadeadd;
                     string estadoadd;
-                    string dataadd;
+                    DateTime dataadd;
+                    string datastring;
                     string obsadd;
-                    Console.WriteLine("Digite o Nome");
+                    Console.WriteLine("Digite o Nome(Iniciais Maiúsculas)");
                     nomeadd = Console.ReadLine();
-                    Console.WriteLine("Digite o Sobrenome");
+                    Console.WriteLine("Digite o Sobrenome(Iniciais Maiúsculas)");
                     sobrenomeadd = Console.ReadLine();
-                    Console.WriteLine("Digite o Tipo de Contato");
+                    Console.WriteLine("Digite o Tipo de Contato(Celular, Trabalho, Casa, Principal, Pager, Fax Trabalho, Fax Casa ou Outro.)");
                     tipocontatoadd = Console.ReadLine();
-                    Console.WriteLine("Digite o Telefone");
+                    Console.WriteLine("Digite o Telefone(ex:xx xxxxxxxxx");
                     telefoneadd = Console.ReadLine();
                     Console.WriteLine("Digite o E-mail");
                     emailadd = Console.ReadLine();
-                    Console.WriteLine("Digite o Bairro");
+                    Console.WriteLine("Digite o Bairro(Iniciais Maiúsculas)");
                     bairroadd = Console.ReadLine();
-                    Console.WriteLine("Digite a Cidade");
+                    Console.WriteLine("Digite a Cidade(Iniciais Maiúsculas)");
                     cidadeadd = Console.ReadLine();
-                    Console.WriteLine("Digite o Estado");
+                    Console.WriteLine("Digite o Estado(Iniciais Maiúsculas)");
                     estadoadd = Console.ReadLine();
-                    Console.WriteLine("Digite a Data de Nascimento");
-                    dataadd = Console.ReadLine();
+                    Console.WriteLine("Digite a Data de Nascimento(ex: dd/mm/aa");
+                    datastring = Console.ReadLine();
+                    dataadd = DateTime.ParseExact(datastring,"dd/MM/yyyy",System.Globalization.CultureInfo.InvariantCulture);
                     Console.WriteLine("Digite a Observação");
                     obsadd = Console.ReadLine();
 
                     for (int i = 0; i < agendacontatos.GetLength(0); i++)
-                    {
-                        object variavelvalor = agendacontatos.GetValue(i, 0);
-                        if (variavelvalor == null)
+                    {   
+                        
+                        if (agendacontatos[i].nome == null)
                         {
-                            agendacontatos[i, 0] = "Nome:" + nomeadd;
-                            agendacontatos[i, 1] = "Sobrenome:" + sobrenomeadd;
-                            agendacontatos[i, 2] = "Tipo de Contato:" + tipocontatoadd;
-                            agendacontatos[i, 3] = "Telefone:" + telefoneadd;
-                            agendacontatos[i, 4] = "Email:" + emailadd;
-                            agendacontatos[i, 5] = "Bairro:" + bairroadd;
-                            agendacontatos[i, 6] = "Cidade:" + cidadeadd;
-                            agendacontatos[i, 7] = "Estado:" + estadoadd;
-                            agendacontatos[i, 8] = "Data de Nascimento:" + dataadd;
-                            agendacontatos[i, 9] = "OBS:" + obsadd;
-                            agendacontatos[i, 10] = "------------------------------------------------";
+                            agendacontatos[i].nome = nomeadd;
+                            agendacontatos[i].sobrenome = sobrenomeadd;
+                            agendacontatos[i].tipocontato = tipocontatoadd;
+                            agendacontatos[i].telefone = telefoneadd;
+                            agendacontatos[i].email = emailadd;
+                            agendacontatos[i].bairro = bairroadd;
+                            agendacontatos[i].cidade = cidadeadd;
+                            agendacontatos[i].estado = estadoadd;
+                            agendacontatos[i].dataniver = dataadd;
+                            agendacontatos[i].obs = obsadd;
+                            
                             break;
                         }
                     }
-                    
 
 
-                    
+
+
 
 
 
@@ -125,36 +172,27 @@ namespace PrimeiroApp
                 else if (acao == "3")
                 {
                     Console.WriteLine("Digite o Primeiro Nome para excluir:");
-                    string variavelnomeexc = "Nome:" + Console.ReadLine();
+                    string variavelnomeexc = Console.ReadLine();
                     Console.WriteLine("Digite o Sobrenome para excluir:");
-                    string variavelsobrenomeexc = "Sobrenome:" + Console.ReadLine();
+                    string variavelsobrenomeexc = Console.ReadLine();
                     Console.WriteLine("Digite o Telefone para excluir(ex: 81912345678):");
-                    string variaveltelefoneexc = "Telefone:" + Console.ReadLine();
+                    string variaveltelefoneexc = Console.ReadLine();
 
-          
+
                     for (int i = 0; i < agendacontatos.GetLength(0); i++)
-                    {   
-                    
-                        if (agendacontatos[i, 0] == variavelnomeexc & agendacontatos[i, 1] == variavelsobrenomeexc & agendacontatos[i, 3] == variaveltelefoneexc)
+                    {
+
+                        if (agendacontatos[i].nome == variavelnomeexc & agendacontatos[i].sobrenome == variavelsobrenomeexc & agendacontatos[i].telefone == variaveltelefoneexc)
                         {
 
-                            agendacontatos.SetValue(null, i,0);
-                            agendacontatos.SetValue(null, i,1);
-                            agendacontatos.SetValue(null, i,2);
-                            agendacontatos.SetValue(null, i,3);
-                            agendacontatos.SetValue(null, i,4);
-                            agendacontatos.SetValue(null, i,5);
-                            agendacontatos.SetValue(null, i,6);
-                            agendacontatos.SetValue(null, i,7);
-                            agendacontatos.SetValue(null, i,8);
-                            agendacontatos.SetValue(null, i,9);
-                            agendacontatos.SetValue(null, i,10);
+                            agendacontatos.SetValue(null, i);
+                          
 
                             Console.WriteLine("Contato Removido Com Sucesso!!");
 
                         }
 
-                        
+
 
 
 
@@ -173,18 +211,33 @@ namespace PrimeiroApp
                         string variavelifpesq = Console.ReadLine();
                         if (variavelifpesq == "1")
                         {
+                            
                             Console.WriteLine("Digite o Primeiro Nome(Inicial Maiúscula):");
-                            string variavelnomepesq = "Nome:" + Console.ReadLine();
+                            string variavelnomepesq = Console.ReadLine();
                             bool variavelachar = false;
                             for (int i = 0; i < agendacontatos.GetLength(0); i++)
                             {
-                                if (agendacontatos[i, 0] == variavelnomepesq)
+                                int mes = agendacontatos[i].dataniver.Month;
+                                int dia = agendacontatos[i].dataniver.Day;
+
+                                DateTime DataConta = new DateTime(DateTime.Today.Year, mes, dia);
+                                int resultado = (int)DataConta.Subtract(DateTime.Today).TotalDays;
+
+                                if (agendacontatos[i].nome == variavelnomepesq)
                                 {
 
-                                    Console.WriteLine(agendacontatos[i, 0] + "\n" + agendacontatos[i, 1] + "\n" +
-                                        agendacontatos[i, 2] + "\n" + agendacontatos[i, 3] + "\n" + agendacontatos[i, 4] + "\n" + agendacontatos[i, 10]);
-                                    variavelachar = true;
-
+                                    if (DataConta > DateTime.Today)
+                                    {
+                                        Console.WriteLine("Nome: " + agendacontatos[i].nome + "\n" + "Sobrenome: " + agendacontatos[i].sobrenome + "\n" + "Tipo de Contato: " +
+                                                agendacontatos[i].tipocontato + "\n" + "Telefone: " + agendacontatos[i].telefone + "\n" + "E-mail: " + agendacontatos[i].email + "\n" +
+                                                "Falta: " + resultado + " dias para seu aniversário" + "\n" + "----------------------------------------");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Nome: " + agendacontatos[i].nome + "\n" + "Sobrenome: " + agendacontatos[i].sobrenome + "\n" + "Tipo de Contato: " +
+                                                agendacontatos[i].tipocontato + "\n" + "Telefone: " + agendacontatos[i].telefone + "\n" + "E-mail: " + agendacontatos[i].email + "\n" +
+                                                "O aniversário do contato já passou." + "\n" + "----------------------------------------");
+                                    }
                                 }
 
                                 if (!variavelachar)
@@ -199,18 +252,34 @@ namespace PrimeiroApp
                         else if (variavelifpesq == "2")
                         {
                             Console.WriteLine("Digite o Primeiro Nome(Inicial Maiúscula):");
-                            string variavelnomepesq = "Nome:" + Console.ReadLine();
+                            string variavelnomepesq = Console.ReadLine();
                             Console.WriteLine("Digite o Sobrenome(Inicial Maiúscula):");
-                            string variavelsobrenomepesq = "Sobrenome:" + Console.ReadLine();
+                            string variavelsobrenomepesq = Console.ReadLine();
                             bool variavelachar = false;
                             for (int i = 0; i < agendacontatos.GetLength(0); i++)
                             {
-                                if (agendacontatos[i, 0] == variavelnomepesq & agendacontatos[i, 1] == variavelsobrenomepesq)
+                                int mes = agendacontatos[i].dataniver.Month;
+                                int dia = agendacontatos[i].dataniver.Day;
+
+                                DateTime DataConta = new DateTime(DateTime.Today.Year, mes, dia);
+                                int resultado = (int)DataConta.Subtract(DateTime.Today).TotalDays;
+
+                                if (agendacontatos[i].nome == variavelnomepesq & agendacontatos[i].sobrenome == variavelsobrenomepesq & agendacontatos[i].nome != null)
                                 {
 
-                                    Console.WriteLine(agendacontatos[i, 0] + "\n" + agendacontatos[i, 1] + "\n" +
-                                        agendacontatos[i, 2] + "\n" + agendacontatos[i, 3] + "\n" + agendacontatos[i, 4] + "\n" + agendacontatos[i, 10]);
-                                    variavelachar = true;
+
+                                    if (DataConta > DateTime.Today)
+                                    {
+                                        Console.WriteLine("Nome: "+agendacontatos[i].nome + "\n" + "Sobrenome: "+ agendacontatos[i].sobrenome + "\n" +"Tipo de Contato: "+
+                                                agendacontatos[i].tipocontato + "\n" +"Telefone: "+ agendacontatos[i].telefone + "\n" +"E-mail: "+ agendacontatos[i].email + "\n" +
+                                                "Falta: " + resultado + " dias para seu aniversário" + "\n" + "----------------------------------------");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Nome: "+agendacontatos[i].nome + "\n" + "Sobrenome: "+ agendacontatos[i].sobrenome + "\n" +"Tipo de Contato: "+
+                                                agendacontatos[i].tipocontato + "\n" +"Telefone: "+ agendacontatos[i].telefone + "\n" +"E-mail: "+ agendacontatos[i].email + "\n" +
+                                                "O aniversário do contato já passou." + "\n" + "----------------------------------------");
+                                    }
 
                                 }
 
@@ -226,50 +295,69 @@ namespace PrimeiroApp
                         else if (variavelifpesq == "3")
                         {
                             Console.WriteLine("Digite o Tipo de Contato(Inicial Maiúscula):");
-                            string variavelcontatopesq = "Tipo de Contato:" + Console.ReadLine();
+                            string variavelcontatopesq = Console.ReadLine();
                             bool variavelachar = false;
                             for (int i = 0; i < agendacontatos.GetLength(0); i++)
                             {
-                                if (agendacontatos[i, 2] == variavelcontatopesq)
+                                int mes = agendacontatos[i].dataniver.Month;
+                                int dia = agendacontatos[i].dataniver.Day;
+
+                                DateTime DataConta = new DateTime(DateTime.Today.Year, mes, dia);
+                                int resultado = (int)DataConta.Subtract(DateTime.Today).TotalDays;
+
+                                if (agendacontatos[i].tipocontato == variavelcontatopesq & agendacontatos[i].tipocontato != null)
                                 {
 
-                                    Console.WriteLine(agendacontatos[i, 0] + "\n" + agendacontatos[i, 1] + "\n" +
-                                        agendacontatos[i, 2] + "\n" + agendacontatos[i, 3] + "\n" + agendacontatos[i, 4] + "\n" + agendacontatos[i, 10]);
-                                    variavelachar = true;
+                                    if (DataConta > DateTime.Today)
+                                    {
+                                        Console.WriteLine("Nome: " + agendacontatos[i].nome + "\n" + "Sobrenome: " + agendacontatos[i].sobrenome + "\n" + "Tipo de Contato: " +
+                                                agendacontatos[i].tipocontato + "\n" + "Telefone: " + agendacontatos[i].telefone + "\n" + "E-mail: " + agendacontatos[i].email + "\n" +
+                                                "Falta: " + resultado + " dias para seu aniversário" + "\n" + "----------------------------------------");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Nome: " + agendacontatos[i].nome + "\n" + "Sobrenome: " + agendacontatos[i].sobrenome + "\n" + "Tipo de Contato: " +
+                                                agendacontatos[i].tipocontato + "\n" + "Telefone: " + agendacontatos[i].telefone + "\n" + "E-mail: " + agendacontatos[i].email + "\n" +
+                                                "O aniversário do contato já passou." + "\n" + "----------------------------------------");
+                                    }
 
-                                }
-
-                                if (!variavelachar)
-                                {
-                                    Console.WriteLine("Não existe esse contato!!\n");
-
-                                }
 
 
-                            }
+
+                                }   }
                         }
                         else if (variavelifpesq == "4")
                         {
                             Console.WriteLine("Digite a Cidade(Inicial Maiúscula):");
-                            string variavelcidadepesq = "Cidade:" + Console.ReadLine();
-                            bool variavelachar = false;
+                            string variavelcidadepesq = Console.ReadLine();
+                            
                             for (int i = 0; i < agendacontatos.GetLength(0); i++)
                             {
-                                if (agendacontatos[i, 6] == variavelcidadepesq)
+                                int mes = agendacontatos[i].dataniver.Month;
+                                int dia = agendacontatos[i].dataniver.Day;
+
+                                DateTime DataConta = new DateTime(DateTime.Today.Year, mes, dia);
+                                int resultado = (int)DataConta.Subtract(DateTime.Today).TotalDays;
+
+                                if (agendacontatos[i].cidade == variavelcidadepesq & agendacontatos[i].cidade != null)
                                 {
 
-                                    Console.WriteLine(agendacontatos[i, 0] + "\n" + agendacontatos[i, 1] + "\n" +
-                                        agendacontatos[i, 2] + "\n" + agendacontatos[i, 3] + "\n" + agendacontatos[i, 4] + "\n" + agendacontatos[i, 10]);
-                                    variavelachar = true;
-
+                                    if (DataConta > DateTime.Today)
+                                    {
+                                        Console.WriteLine("Nome: " + agendacontatos[i].nome + "\n" + "Sobrenome: " + agendacontatos[i].sobrenome + "\n" + "Tipo de Contato: " +
+                                                agendacontatos[i].tipocontato + "\n" + "Telefone: " + agendacontatos[i].telefone + "\n" + "E-mail: " + agendacontatos[i].email + "\n" +
+                                                "Falta: " + resultado + " dias para seu aniversário" + "\n" + "----------------------------------------");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Nome: " + agendacontatos[i].nome + "\n" + "Sobrenome: " + agendacontatos[i].sobrenome + "\n" + "Tipo de Contato: " +
+                                                agendacontatos[i].tipocontato + "\n" + "Telefone: " + agendacontatos[i].telefone + "\n" + "E-mail: " + agendacontatos[i].email + "\n" +
+                                                "O aniversário do contato já passou." + "\n" + "----------------------------------------");
+                                    }
 
                                 }
 
-                                if (!variavelachar)
-                                {
-                                    Console.WriteLine("Não existe esse contato!!\n");
-
-                                }
+                                
 
 
                             }
@@ -296,7 +384,7 @@ namespace PrimeiroApp
                 }
             }
         }
-        
-      
+
+
     }
 }
