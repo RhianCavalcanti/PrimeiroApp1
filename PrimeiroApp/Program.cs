@@ -71,7 +71,8 @@ namespace PrimeiroApp
                     "4-Pesquisar Contato;\n" +
                     "5-Sair");
                 string acao = Console.ReadLine();
-                //0-nome 1-sobrenome 2-tipocontato 3- telefone 4-email 5- bairro 6-cidade 7-estado 8-data 9-obs
+                
+
                 if (acao == "1")
                 {
                     for (int i = 0; i < agendacontatos.GetLength(0); i++)
