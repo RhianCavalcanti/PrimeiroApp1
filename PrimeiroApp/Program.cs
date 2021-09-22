@@ -29,8 +29,8 @@ namespace PrimeiroApp
             agendacontatos[3].nome = "Rhian";
             agendacontatos[3].sobrenome = "Branco";
             agendacontatos[3].tipocontato = "Casa";
-            agendacontatos[3].telefone = "81985441003";
-            agendacontatos[3].email = "rhianqw@gmail.com";
+            agendacontatos[3].telefone = "81981745696";
+            agendacontatos[3].email = "rhianbranco@gmail.com";
             agendacontatos[3].bairro = "Paratibe";
             agendacontatos[3].cidade = "Paulista";
             agendacontatos[3].estado = "Pernambuco";
@@ -41,10 +41,10 @@ namespace PrimeiroApp
             agendacontatos[99].nome = "Rhuan";
             agendacontatos[99].sobrenome = "Cavalcanti";
             agendacontatos[99].tipocontato = "Casa";
-            agendacontatos[99].telefone = "81985441003";
-            agendacontatos[99].email = "rhianqw@gmail.com";
-            agendacontatos[99].bairro = "Paratibe";
-            agendacontatos[99].cidade = "Paulista";
+            agendacontatos[99].telefone = "81989774528";
+            agendacontatos[99].email = "rhuancavalcanti@gmail.com";
+            agendacontatos[99].bairro = "Rio Doce";
+            agendacontatos[99].cidade = "Olinda";
             agendacontatos[99].estado = "Pernambuco";
             agendacontatos[99].dataniver = DateTime.ParseExact(data3, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
             agendacontatos[99].obs = "Colega de Trabalho";
@@ -53,8 +53,8 @@ namespace PrimeiroApp
             agendacontatos[97].nome = "Pedro";
             agendacontatos[97].sobrenome = "Barros";
             agendacontatos[97].tipocontato = "Pessoal";
-            agendacontatos[97].telefone = "81985441003";
-            agendacontatos[97].email = "rhianqw@gmail.com";
+            agendacontatos[97].telefone = "81985641034";
+            agendacontatos[97].email = "pedrob@gmail.com";
             agendacontatos[97].bairro = "Peixinhos";
             agendacontatos[97].cidade = "Olinda";
             agendacontatos[97].estado = "Pernambuco";
