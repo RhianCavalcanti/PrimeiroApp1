@@ -124,9 +124,9 @@ namespace PrimeiroApp
                     nomeadd = Console.ReadLine();
                     Console.WriteLine("Digite o Sobrenome(Iniciais Maiúsculas)");
                     sobrenomeadd = Console.ReadLine();
-                    Console.WriteLine("Digite o Tipo de Contato(Celular, Trabalho, Casa, Principal, Pager, Fax Trabalho, Fax Casa ou Outro.)");
+                    Console.WriteLine("Digite o Tipo de Contato(Iniciais Maiúsculas/ Tipos: Celular, Trabalho, Casa, Principal, Pager, Fax Trabalho, Fax Casa ou Outro.)");
                     tipocontatoadd = Console.ReadLine();
-                    Console.WriteLine("Digite o Telefone(ex:xx xxxxxxxxx");
+                    Console.WriteLine("Digite o Telefone(ex:81912345678");
                     telefoneadd = Console.ReadLine();
                     Console.WriteLine("Digite o E-mail");
                     emailadd = Console.ReadLine();
@@ -296,7 +296,7 @@ namespace PrimeiroApp
                         }
                         else if (variavelifpesq == "3")
                         {
-                            Console.WriteLine("Digite o Tipo de Contato(Inicial Maiúscula):");
+                            Console.WriteLine("Digite o Tipo de Contato(Inicial Maiúscula/ Tipos:Celular, Trabalho, Casa, Principal, Pager, Fax Trabalho, Fax Casa ou Outro.):");
                             string variavelcontatopesq = Console.ReadLine();
                             bool variavelachar = false;
                             for (int i = 0; i < agendacontatos.GetLength(0); i++)
