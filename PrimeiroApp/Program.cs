@@ -62,6 +62,7 @@ namespace PrimeiroApp
             agendacontatos[97].obs = "Colega de Trabalho";
 
 
+            
             while (variavelloopmain == "iniciar")
             {
                 Console.WriteLine("Digite o número do que você quer fazer\n" +
