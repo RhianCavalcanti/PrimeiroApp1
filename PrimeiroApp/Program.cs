@@ -73,6 +73,7 @@ namespace PrimeiroApp
                 string acao = Console.ReadLine();
                 
 
+
                 if (acao == "1")
                 {
                     for (int i = 0; i < agendacontatos.GetLength(0); i++)

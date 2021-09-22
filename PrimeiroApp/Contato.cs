@@ -19,7 +19,7 @@ namespace PrimeiroApp
 
         public Contato(string nome, string sobrenome, string tipocontato, string telefone, string email, string bairro, string cidade, string estado, DateTime dataniver, string obs)
         {
-            this.nome = nome;
+            this.nome =nome;
             this.sobrenome = sobrenome;
             this.tipocontato = tipocontato;
             this.telefone = telefone;
